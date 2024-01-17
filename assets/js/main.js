@@ -1,7 +1,7 @@
 const pokemonList = document.getElementById('pokemonList')
 const loadMoreBtn = document.getElementById('loadMoreBtn')
 let offset = 0
-let limit = 5
+let limit = 10
 const maxRecords = 151
 
 
@@ -11,8 +11,7 @@ function convertPokemonToLi(pokemon){
     <li class="pokemon ${pokemon.type}">
     <span class="number">#${pokemon.number}</span>
     <span class="name">${pokemon.name}</span>
-    
-    
+   
     <div class="detail">
     
     <ol class="types">
