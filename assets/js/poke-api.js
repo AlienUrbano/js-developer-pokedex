@@ -32,8 +32,6 @@ function convertPokeApiDetailToPokemon (pokeDetail){
 
     pokemon.statsValue = statsBase
     pokemon.statValue = statBase
-    
-    // pokemon.hp = pokeDetail.stats.stat.name
 
 
 

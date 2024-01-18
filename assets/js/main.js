@@ -1,4 +1,5 @@
 const pokemonList = document.getElementById('pokemonList')
+const pokemonCard = document.getElementById('pokemonCard')
 const loadMoreBtn = document.getElementById('loadMoreBtn')
 let offset = 0
 let limit = 10
@@ -8,9 +9,11 @@ const maxRecords = 151
 function convertPokemonToLi(pokemon){
     return `
     
-    <li class="pokemon ${pokemon.type}">
+    <li class="pokemon ${pokemon.type}" id="pokemonCard" onclick = "showPokemonModal('${pokemon.number}')">
     <span class="number">#${pokemon.number}</span>
     <span class="name">${pokemon.name}</span>
+
+
    
     <div class="detail">
     
