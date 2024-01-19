@@ -13,25 +13,18 @@ function convertPokeApiDetailToPokemon (pokeDetail){
     pokemon.types = types
     pokemon.type = type
 
-    pokemon.photo = pokeDetail.sprites.other.showdown.front_default
+    pokemon.photo = pokeDetail.sprites.other.dream_world.front_default
 
     //Pokemon Detail Stats
 
-    pokemon.height = pokeDetail.height
+    const stats = {};
+    pokeDetail.stats.forEach((statsSlot) => {
+        stats[statsSlot.stat.name] = statsSlot.base_stat;
+    });
 
-    pokemon.weight = pokeDetail.weight
+    pokemon.stats = stats;
+    pokemon.statsAsString = Object.entries(stats).map(([statName, statValue]) => `${statName}: ${statValue}`).join('<br>');
 
-    const stats = pokeDetail.stats.map((statsSlot)=> statsSlot.stat.name)
-    const [stat] = stats
-
-    pokemon.stats = stats
-    pokemon.stat = stat
-
-    const statsBase = pokeDetail.stats.map((statsBaseSlot)=> statsBaseSlot.base_stat)
-    const [statBase] = statsBase
-
-    pokemon.statsValue = statsBase
-    pokemon.statValue = statBase
 
 
 
