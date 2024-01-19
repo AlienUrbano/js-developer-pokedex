@@ -9,21 +9,31 @@ const maxRecords = 151
 function convertPokemonToLi(pokemon){
     return `
     
-    <li class="pokemon ${pokemon.type}" id="pokemonCard" onclick = "showPokemonModal('${pokemon.number}')">
-    <span class="number">#${pokemon.number}</span>
-    <span class="name">${pokemon.name}</span>
+    <li class="pokemon ${pokemon.type}" id="pokemonCard-${pokemon.number}" onclick = "toggleCardExpansion(${pokemon.number})">
+        <span class="number">#${pokemon.number}</span>
+        <span class="name">${pokemon.name}</span>
+    
+
 
 
    
-    <div class="detail">
+        <div class="detail">
     
-    <ol class="types">
-    ${pokemon.types.map((type) => `<li class= "type ${type}">${type}</li>`).join('')}
-    </ol>
+            <div class="stats-container" id= "stats-container-${pokemon.number}">
+             
+                <span class="PokemonStats">${pokemon.statsAsString}</span>
+        
+            </div>
+        
+            <ol class="types">
+                ${pokemon.types.map((type) => 
+                `<li class= "type ${type}">${type}</li>`).join('')}
+            </ol>
     
-    <img src="${pokemon.photo}" alt="${pokemon.name}">
+            <img src="${pokemon.photo}" alt="${pokemon.name}">
+
     
-    </div>
+        </div>
     </li>
     
     `
